@@ -35,7 +35,6 @@
     </nav>
 </header>
 
-@inject IJSRuntime JSRuntime
 @code {
     /// <summary>
     /// 下拉菜单是否打开
@@ -63,9 +62,9 @@
     /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
-        currentTheme = await JSRuntime.InvokeAsync<string>("window.func.getStorage", "theme") ?? "Light";
+        currentTheme = await Common.GetStorageAsync("theme") ?? "Light";
 
-        await JSRuntime.InvokeVoidAsync("window.func.switchTheme");
+        await Common.InvokeAsync("window.func.switchTheme");
     }
 
     /// <summary>
@@ -75,8 +74,8 @@
     {
         currentTheme = currentTheme == "Light" ? "Dark" : "Light";
 
-        await JSRuntime.InvokeVoidAsync("window.func.setStorage", "theme", currentTheme);
+        await Common.SetStorageAsync("theme", currentTheme);
 
-        await JSRuntime.InvokeVoidAsync("window.func.switchTheme");
+        await Common.InvokeAsync("window.func.switchTheme");
     }
 }
