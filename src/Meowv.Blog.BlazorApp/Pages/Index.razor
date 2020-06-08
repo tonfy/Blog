@@ -29,13 +29,30 @@
                 <NavLink target="_blank" class="link-item" title="Github" href="https://github.com/Meowv/">
                     <i class="iconfont icongithub"></i>
                 </NavLink>
-                <NavLink class="link-item weixin" title="扫码关注微信公众号：『阿星Plus』查看更多。">
+                <NavLink class="link-item weixin" title="扫码关注微信公众号：『阿星Plus』查看更多。" @onmouseover="Hover" @onmouseout="Hover">
                     <i class="iconfont iconweixin"></i>
                 </NavLink>
-                <div class="qrcode hidden">
+                <div class="qrcode @QrCodeCssClass">
                     <img src="https://static.meowv.com/images/wx_qrcode.jpg" />
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@code {
+    /// <summary>
+    /// 是否隐藏
+    /// </summary>
+    private bool IsHidden = true;
+
+    /// <summary>
+    /// 二维码CSS
+    /// </summary>
+    private string QrCodeCssClass => IsHidden ? "hidden" : null;
+
+    /// <summary>
+    /// 鼠标移入移出操作
+    /// </summary>
+    private void Hover() => IsHidden = !IsHidden;
+}
