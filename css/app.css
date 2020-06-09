@@ -593,7 +593,7 @@ header label {
 .post-wrap {
 	position: relative;
 	width: 100%;
-	max-width: 780px;
+	max-width: 1024px;
 	margin: 0 auto;
 	padding-top: 2rem;
 }
@@ -704,6 +704,12 @@ header label {
 .post-wrap .post-title {
 	font-size: 2em;
 	line-height: 1.5em;
+}
+
+.post-wrap .eror-tip {
+	text-align: center;
+	line-height: 1.5em;
+	margin-top: 250px;
 }
 
 .post-wrap .post-meta {
