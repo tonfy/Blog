@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db-migrations", "db-migrati
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D7CB0953-1482-47FC-BF7C-53F36A24C490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meowv.Blog.BlazorApp", "src\Meowv.Blog.BlazorApp\Meowv.Blog.BlazorApp.csproj", "{246EAAC2-5286-4CD2-A308-4DFE49DC2EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meowv.Blog.BlazorApp", "src\Meowv.Blog.BlazorApp\Meowv.Blog.BlazorApp.csproj", "{246EAAC2-5286-4CD2-A308-4DFE49DC2EC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

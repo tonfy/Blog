@@ -1,0 +1,22 @@
+﻿@page "/post/{year:int}/{month:int}/{day:int}/{name}"
+
+<Loading />
+
+@code {
+    [Parameter]
+    public int year { get; set; }
+
+    [Parameter]
+    public int month { get; set; }
+
+    [Parameter]
+    public int day { get; set; }
+
+    [Parameter]
+    public string name { get; set; }
+
+    /// <summary>
+    /// URL
+    /// </summary>
+    private string url => $"/{year}/{(month >= 10 ? month.ToString() : $"0{month}")}/{(day >= 10 ? day.ToString() : $"0{day}")}/{name}/";
+}

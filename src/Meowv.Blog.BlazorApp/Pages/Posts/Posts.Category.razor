@@ -1,0 +1,11 @@
+﻿@page "/category/{name}"
+
+<Loading />
+
+@code {
+    /// <summary>
+    /// 分类名称参数
+    /// </summary>
+    [Parameter]
+    public string name { get; set; }
+}
