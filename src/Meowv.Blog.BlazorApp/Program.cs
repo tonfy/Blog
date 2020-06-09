@@ -14,7 +14,15 @@ namespace Meowv.Blog.BlazorApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            var baseAddress = "https://localhost";
+
+            if (builder.HostEnvironment.IsProduction())
+                baseAddress = "https://api.meowv.com";
+
+            builder.Services.AddTransient(sp => new HttpClient
+            {
+                BaseAddress = new Uri(baseAddress)
+            });
 
             builder.Services.AddSingleton(typeof(Common));
 
