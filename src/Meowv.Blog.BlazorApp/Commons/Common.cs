@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System;
 using System.Threading.Tasks;
 
 namespace Meowv.Blog.BlazorApp.Commons
@@ -62,16 +63,36 @@ namespace Meowv.Blog.BlazorApp.Commons
         }
 
         /// <summary>
+        /// 后退
+        /// </summary>
+        /// <returns></returns>
+        public async Task BaskAsync()
+        {
+            await InvokeAsync("window.history.back");
+        }
+
+        /// <summary>
         /// 跳转指定URL
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="forceLoad">true，绕过路由刷新页面</param>
         /// <returns></returns>
-        public async Task RenderPage(string url, bool forceLoad = true)
+        public async Task NavigateTo(string url, bool forceLoad = false)
         {
             _navigationManager.NavigateTo(url, forceLoad);
 
             await Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 获取当前URI对象
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Uri> CurrentUri()
+        {
+            var uri = _navigationManager.ToAbsoluteUri(_navigationManager.Uri);
+
+            return await Task.FromResult(uri);
         }
     }
 }
